@@ -1,8 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import CountryCard from './CountryCard';
+import {useGetCountriesByNameQuery} from '../services/countries';
 
 export default function App() {
+  const [name, setName] = useState('');
+
+  const {data, error, isLoading} = useGetCountriesByNameQuery(name);
+
+  useEffect(() => {
+    console.log(data);
+  })
+
+  const handleNameSearchChange = (e: any) => {
+    setName(e.target.value);
+  }
+
   return (
     <div className="app">
       <div className="header">
@@ -11,7 +24,12 @@ export default function App() {
       <div className="main">
         <div className="toolbar">
           <form>
-            <input className="search-bar" type="text" placeholder="Search for a country..." />
+            <input 
+              className="search-bar"
+              type="text" 
+              placeholder="Search for a country..."
+              value={name}
+              onChange={handleNameSearchChange}/>
           </form>
           <select className="region-select" name="cars" id="cars">
             <option value="">Filter by Region</option>

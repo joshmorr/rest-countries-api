@@ -16,7 +16,7 @@ interface Language {
     nativeName: string,
 }
 
-export interface Country {
+export default interface Country {
     currencies: Currency[],
     languages: Language[],
     name: string,
@@ -26,4 +26,5 @@ export interface Country {
     borders: string[],
     region: string,
     subregion: string,
+    flags: Flags
 }
