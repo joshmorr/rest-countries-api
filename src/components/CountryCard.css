@@ -1,0 +1,27 @@
+.card {
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  padding-bottom: 17.4%;
+}
+
+.flag {
+  width: 100%;
+}
+
+.info {
+  margin-left: 9%;
+}
+
+.country-name {
+  font-size: 16px;
+}
+
+.info-line {
+  margin-bottom: 1%;
+  font-weight: 300;
+  font-size: 13px;
+}
+
+.info-line span {
+  font-weight: 600;
+}

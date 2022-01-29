@@ -1,0 +1,89 @@
+.app {
+  background-color: #F2F2F2;
+}
+
+.header {
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.title {
+  font-weight: 800;
+  font-size: 22px;
+  margin: auto 0 auto 60px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.main {
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.toolbar {
+  display: flex;
+  direction: row;
+  margin-top: 38px;
+  margin-bottom: 38px;
+}
+
+.search-bar {
+  width: 426px;
+  height: 38px;
+  border: none;
+  background-image: url('../../resources/search-icon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400px;
+  margin-right: 10px;
+}
+
+.region-select {
+  margin-left: auto;
+  height: 38px;
+  width: 175px;
+  border: none;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template: repeat(2, auto) / repeat(4, auto);
+  column-gap: 50px;
+  row-gap: 50px;
+  padding-bottom: 38px;
+}
+
+@media screen and (max-width: 600px){
+  .main {
+    margin: 0;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .search-bar {
+    margin-bottom: 10px;
+    width: calc(100% - 40px);
+  }
+
+  .region-select {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .grid-container {
+    grid-template-columns: auto;
+    margin-left: 55px;
+    margin-right: 55px;
+  }
+  
+}
