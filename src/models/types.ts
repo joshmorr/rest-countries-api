@@ -26,5 +26,6 @@ export default interface Country {
     borders: string[],
     region: string,
     subregion: string,
-    flags: Flags
+    flags: Flags,
+    population: number
 }

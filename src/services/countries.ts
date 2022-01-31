@@ -8,8 +8,8 @@ export const countriesApi = createApi({
     reducerPath: 'pokemonApi',
     baseQuery: fetchBaseQuery({ baseUrl: baseUrl}),
     endpoints: (builder) => ({
-        getCountriesByName: builder.query<Country, string>({
-            query: (name) => `name/${name}/${fields}`,
+        getCountriesByName: builder.query<Country[], string>({
+            query: (name) => name ? `name/${name}/${fields}` : `all${fields}`,
         }),
     }),
 })

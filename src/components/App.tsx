@@ -1,16 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import CountryCard from './CountryCard';
-import {useGetCountriesByNameQuery} from '../services/countries';
+import { useGetCountriesByNameQuery } from '../services/countries';
 
 export default function App() {
   const [name, setName] = useState('');
-
-  const {data, error, isLoading} = useGetCountriesByNameQuery(name);
-
-  useEffect(() => {
-    console.log(data);
-  })
+  const { data, error, isLoading, } = useGetCountriesByNameQuery(name);
 
   const handleNameSearchChange = (e: any) => {
     setName(e.target.value);
@@ -24,12 +19,12 @@ export default function App() {
       <div className="main">
         <div className="toolbar">
           <form>
-            <input 
+            <input
               className="search-bar"
-              type="text" 
+              type="text"
               placeholder="Search for a country..."
               value={name}
-              onChange={handleNameSearchChange}/>
+              onChange={handleNameSearchChange} />
           </form>
           <select className="region-select" name="cars" id="cars">
             <option value="">Filter by Region</option>
@@ -41,33 +36,21 @@ export default function App() {
           </select>
         </div>
         <div className="grid-container">
-          <div className="grid-item">
-            <CountryCard />
-          </div>
-          <div className="grid-item">
-            <CountryCard />
-          </div>
-          <div className="grid-item">
-            <CountryCard />
-          </div>
-          <div className="grid-item">
-            <CountryCard />
-          </div>
-          <div className="grid-item">
-            <CountryCard />
-          </div>
-          <div className="grid-item">
-            <CountryCard />
-          </div>
-          <div className="grid-item">
-            <CountryCard />
-          </div>
-          <div className="grid-item">
-            <CountryCard />
-          </div>
+          {error ? (
+            <>Oh no, there was an error</>
+          ) : isLoading ? (
+            <>Loading...</>
+          ) : data ? (
+            data.map ? data.map(country => {
+              return (
+                <div className="grid-item">
+                  <CountryCard country={country} />
+                </div>
+              )
+            }) : <>No countries found</>
+          ) : null}
         </div>
       </div>
-
     </div>
   );
 }
