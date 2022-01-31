@@ -2,12 +2,18 @@
   background-color: white;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
   padding-bottom: 10%;
-  height: 300px;
+  min-height: 300px;
+}
+
+.flag-box {
+  display: flex;
+  height: 60%;
+  align-items: flex-start;
 }
 
 .flag {
   width: 100%;
-  height: 50%;
+  object-fit: contain;
 }
 
 .info {
@@ -26,4 +32,10 @@
 
 .info-line span {
   font-weight: 600;
+}
+
+@media screen and (max-width: 600px){
+  .flag-box {
+    height: 80%;
+  }
 }

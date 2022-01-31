@@ -84,6 +84,6 @@
     grid-template-columns: 70.4vw;
     margin-left: 55px;
     margin-right: 55px;
-    align-content: center;
+    justify-content: center;
   } 
 }
