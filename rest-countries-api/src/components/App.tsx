@@ -15,10 +15,11 @@ export default function App() {
         <div className="header">
           <h3 className="title">Where in the world?</h3>
         </div>
-        <Home/>
       </div>
       <Routes>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/" element={<Home/>}>
+          <Route path="/details"></Route>
+        </Route>
       </Routes>
     </Router>
   );

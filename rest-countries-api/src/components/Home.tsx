@@ -1,50 +1,76 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Home.css';
-import CountryCard from './CountryCard';
-import { useGetCountriesByNameQuery } from '../services/countries';
+import Card from './Card';
+import Country from '../models/types';
+import { getCountriesByName } from '../services/countries';
 
-export default function App() {
+export default function Home() {
   const [name, setName] = useState('');
-  const { data, error, isLoading, } = useGetCountriesByNameQuery(name);
+  const [region, setRegion] = useState('');
+  const [countries, setCountries] = useState([]);
 
-  const handleNameSearchChange = (e: any) => {
+  useEffect(() => {
+    const fetchCountries = async () => {
+      getCountriesByName(name).then(response => {
+        setCountries(response.data);
+      });
+    }
+    fetchCountries();
+  }, [name])
+
+  const filterByRegion = (countries: Country[], region: string): Country[] => {
+    return countries.filter(country => {
+      return country.region === region;
+    })
+  }
+
+  const handleNameChange = (e: any) => {
     setName(e.target.value);
+  }
+
+  const handleRegionChange = (e: any) => {
+    setRegion(e.target.value)
+  }
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
   }
 
   return (
     <div className="home">
       <div className="toolbar">
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             className="search-bar"
             type="text"
             placeholder="Search for a country..."
             value={name}
-            onChange={handleNameSearchChange} />
+            onChange={handleNameChange} />
         </form>
-        <select className="region-select" name="cars" id="cars">
+        <select className="region-select" value={region} onChange={handleRegionChange}>
           <option value="">Filter by Region</option>
-          <option value="africa">Africa</option>
-          <option value="americas">Americas</option>
-          <option value="asia">Asia</option>
-          <option value="europe">Europe</option>
-          <option value="oceania">Oceania</option>
+          <option value="Africa">Africa</option>
+          <option value="Americas">Americas</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Oceania">Oceania</option>
         </select>
       </div>
       <div className="grid-container">
-        {error ? (
-          <>Oh no, there was an error</>
-        ) : isLoading ? (
-          <>Loading...</>
-        ) : data ? (
-          data.map ? data.map(country => {
+        {
+          countries.map && countries.filter(country => {
+            if (region === '') {
+              return true;
+            }
+            return (country as Country).region === region;
+          }).map(country => {
             return (
               <div className="grid-item">
-                <CountryCard country={country} />
+                <Card country={country} />
               </div>
             )
-          }) : <>No countries found</>
-        ) : null}
+          })
+        }
       </div>
     </div>
   );

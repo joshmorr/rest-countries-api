@@ -1,16 +1,14 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import Country from '../models/types';
+import axios from 'axios';
 
 const baseUrl = 'https://restcountries.com/v2/';
 
-export const countriesApi = createApi({
-    reducerPath: 'pokemonApi',
-    baseQuery: fetchBaseQuery({ baseUrl: baseUrl}),
-    endpoints: (builder) => ({
-        getCountriesByName: builder.query<Country[], string>({
-            query: (name) => name ? `name/${name}` : `all`,
-        }),
-    }),
-})
+export const getCountriesByName = (name: string) => {
+    if (name === '') {
+        return axios.get(baseUrl + 'all');
+    }
+    return axios.get(baseUrl + 'name/' + name);
+}
 
-export const { useGetCountriesByNameQuery } = countriesApi;
+export const getCountryByCode = (code: string) => {
+    return axios.get(baseUrl + 'alpha/' + code);
+}

@@ -1,8 +1,8 @@
 import React from 'react';
-import './CountryCard.css';
+import './Card.css';
 import Country from '../models/types';
 
-interface CountryCardProps {
+interface CardProps {
   country: Country
 }
 
@@ -10,7 +10,7 @@ function formatPopulation(population: number): string {
   return new Intl.NumberFormat().format(population);
 }
 
-export default function CountryCard({country}: CountryCardProps) {
+export default function Card({country}: CardProps) {
   return (
     <div className="card">
       <div className="flag-box">
