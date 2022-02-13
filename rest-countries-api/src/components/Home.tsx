@@ -18,12 +18,6 @@ export default function Home() {
     fetchCountries();
   }, [name])
 
-  const filterByRegion = (countries: Country[], region: string): Country[] => {
-    return countries.filter(country => {
-      return country.region === region;
-    })
-  }
-
   const handleNameChange = (e: any) => {
     setName(e.target.value);
   }

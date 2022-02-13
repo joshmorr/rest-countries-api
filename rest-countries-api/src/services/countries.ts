@@ -10,5 +10,6 @@ export const getCountriesByName = (name: string) => {
 }
 
 export const getCountryByCode = (code: string) => {
+    console.log(baseUrl + 'alpha/' + code);
     return axios.get(baseUrl + 'alpha/' + code);
 }

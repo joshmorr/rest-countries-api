@@ -5,6 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 import Home from './Home';
+import Details from './Details';
 import './App.css';
 
 export default function App() {
@@ -17,9 +18,8 @@ export default function App() {
         </div>
       </div>
       <Routes>
-        <Route path="/" element={<Home/>}>
-          <Route path="/details"></Route>
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path=":code" element={<Details />} />
       </Routes>
     </Router>
   );
