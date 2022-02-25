@@ -3,13 +3,13 @@ interface Flags {
     svg: string
 }
 
-interface Currency {
+export interface Currency {
     code: string,
     name: string,
     symbol: string
 }
 
-interface Language {
+export interface Language {
     iso639_1: string,
     iso639_2: string,
     name: string,
@@ -27,5 +27,6 @@ export default interface Country {
     region: string,
     subregion: string,
     flags: Flags,
-    population: number
+    population: number,
+    alpha3Code: string
 }

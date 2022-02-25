@@ -1,0 +1,79 @@
+.details {
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.back-button {
+    margin-top: 7.8vh;
+    margin-bottom: 7.8vh;
+    background-color: transparent;
+    background-image: url('../../resources/back-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: 32px 10px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+    padding: 10px 33px 10px 68px; 
+}
+
+.details .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 120px;
+}
+
+.details .flag {
+    border-radius: 4px;
+}
+
+.details .info {
+    margin-top: 39px;
+    margin-bottom: 39px;
+}
+
+.details .country-name {
+    font-weight: 800;
+    font-size: 32px;
+}
+
+.details .facts-box {
+    display: flex;
+    flex-direction: row;
+}
+
+.details .right-facts {
+   margin-left: auto;
+}
+
+.details .fact {
+    font-weight: 300;
+    line-height: 32px;
+}
+
+.details .fact span {
+    font-weight: 600;
+}
+
+.details .fact .fact-arr-el {
+    display: inline;
+}
+
+.details .border-countries {
+    margin-top: 68px;
+}
+
+.details .border-countries button {
+    background-color: transparent;
+    border: none;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    box-shadow: 0px 0px 4px 1px #0000001B;
+    margin-right: 10px;
+    min-width: 96px;
+}
+
+.details .border-countries .fact-title {
+    margin-right: 15px;
+}

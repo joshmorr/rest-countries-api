@@ -10,6 +10,12 @@ export const getCountriesByName = (name: string) => {
 }
 
 export const getCountryByCode = (code: string) => {
-    console.log(baseUrl + 'alpha/' + code);
     return axios.get(baseUrl + 'alpha/' + code);
+}
+
+export const getCountriesByCodes = (codes: string[]) => {
+    let url = baseUrl + 'alpha?codes=';
+    codes.forEach((code) => url += code.toLowerCase() + ',');
+    url = url.substring(0, url.length - 1);
+    return axios.get(url);
 }
