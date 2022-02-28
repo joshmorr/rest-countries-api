@@ -28,8 +28,7 @@
 }
 
 .details .info {
-    margin-top: 39px;
-    margin-bottom: 39px;
+    margin: 39px 0 0 0;
 }
 
 .details .country-name {
@@ -48,6 +47,7 @@
 
 .details .fact {
     font-weight: 300;
+    font-size: 16px;
     line-height: 32px;
 }
 
@@ -76,4 +76,41 @@
 
 .details .border-countries .fact-title {
     margin-right: 15px;
+}
+
+@media screen and (max-width: 600px) {
+    .details {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .back-button {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .details .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .details .info {
+        margin-top: 0;
+    }
+
+    .details .country-name {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+
+    .details .facts-box {
+        flex-direction: column;
+    }
+
+    .details .right-facts {
+        margin-left: 0;
+     }
+
+    .details .fact {
+        font-size: 14px;
+    }
 }
